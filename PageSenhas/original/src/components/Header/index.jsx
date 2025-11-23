@@ -1,23 +1,30 @@
 import { Link } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { useState} from "react";
+import { useState } from "react";
 import logo from "../../assets/images/logo.png";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 
+    <>
+      {/* HEADER */}
+      <header
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 
                    w-1/2 max-w-3xl rounded-full 
                    bg-[#000000]/70
-                   flex items-center justify-center 
-                   shadow-lg border border-[#ffffff]/10 transition-all duration-500 overflow-hidden">
-      <nav className="flex justify-center items-center py-1 px-3 gap-8 text-[#ffffff]">
+                   flex items-center justify-between 
+                   px-4 py-2
+                   shadow-lg border border-[#ffffff]/10 
+                   transition-all duration-500 overflow-hidden"
+      >
+        {/* LOGO */}
         <a href="/">
-          <img src={logo} alt="logo" className="w-15" />
+          <img src={logo} alt="logo" className="w-14" />
         </a>
 
-        <ul className="hidden lg:flex items-center gap-8">
+        {/* LINKS DESKTOP */}
+        <ul className="hidden lg:flex items-center gap-8 text-white">
           {[
             { to: "educacional", label: "Educacional" },
             { to: "linha", label: "Evolução" },
@@ -39,34 +46,45 @@ export default function Header() {
           ))}
         </ul>
 
-        {/* mobile */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        {/* BOTÃO MOBILE */}
+        <button
+          className="lg:hidden text-white text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
-        {isOpen && (
-          <ul className="absolute top-full left-0 w-full bg-[#000000] flex flex-col items-center gap-6 py-6 md:hidden">
-            {[
-              { to: "educacional", label: "Educacional" },
-              { to: "linha", label: "Evolução" },
-              { to: "curiosidades", label: "Curiosidades" },
-              { to: "teste", label: "Teste" },
-            ].map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  smooth={true}
-                  duration={600}
-                  offset={-10}
-                  className="cursor-pointer text-xl font-medium"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-      </nav>
-    </header>
+      </header>
+
+      {/* MENU MOBILE */}
+      {isOpen && (
+        <ul
+          className="fixed left-1/2 -translate-x-1/2 
+                     top-[92px]  /* mesma altura do header */
+                     w-1/2 max-w-3xl bg-black/90 
+                     flex flex-col items-center gap-6 py-6 
+                     rounded-b-3xl z-40 lg:hidden"
+        >
+          {[
+            { to: "educacional", label: "Educacional" },
+            { to: "linha", label: "Evolução" },
+            { to: "curiosidades", label: "Curiosidades" },
+            { to: "teste", label: "Teste" },
+          ].map((item) => (
+            <li key={item.to}>
+              <Link
+                to={item.to}
+                smooth={true}
+                duration={600}
+                offset={-10}
+                className="cursor-pointer text-xl font-medium text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
   );
 }
