@@ -12,7 +12,7 @@ export default function Header() {
                    bg-[#000000]/70
                    flex items-center justify-center 
                    shadow-lg border border-[#ffffff]/10 transition-all duration-500 overflow-hidden">
-      <nav className="flex justify-center items-center py-1 gap-8 text-[#ffffff]">
+      <nav className="flex justify-center items-center py-1 px-1 gap-8 text-[#ffffff]">
         <a href="/">
           <img src={logo} alt="logo" className="w-15" />
         </a>
