@@ -1,0 +1,14 @@
+# Dependencias
+node_modules
+*/node_modules
+
+# Builds de producao
+build
+dist
+*/build
+*/dist
+
+# Logs e ambiente
+*.log
+.env
+.DS_Store

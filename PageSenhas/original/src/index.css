@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --bg-shade: rgba(255, 255, 255, 0.1);
+  --bg-color: #000209;
+  --gradient-color: linear-gradient(90deg, #6a3093 0%, #a044ff 100%);
+  --text-color: #ffffff;
+}
+
+* {
+    font-family: "Outfit", sans-serif;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.txtGradiente {
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.linha {
+  -webkit-background-clip: text;
+  background-clip: var(--bg-color) ;
+  background: var(--gradient-color);
+}
