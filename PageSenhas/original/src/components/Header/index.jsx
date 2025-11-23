@@ -30,7 +30,7 @@ export default function Header() {
                 smooth={true}
                 duration={600}
                 offset={-10}
-                className="group relative cursor-pointer text-lg font-medium p-2"
+                className="group relative inline-block cursor-pointer text-lg font-medium p-2"
               >
                 {item.label}
                 <span className="linha absolute bottom-0 right-0 w-0 h-[3px] rounded-full transition-all duration-500 group-hover:w-full group-hover:left-0"></span>
