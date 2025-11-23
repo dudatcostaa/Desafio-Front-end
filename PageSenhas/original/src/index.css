@@ -26,9 +26,7 @@ body {
 
 
 .linha {
-  background: linear-gradient(90deg, #6a3093 0%, #a044ff 100%);
-  display: block;
-  height: 3px;
-  border-radius: 9999px;
-  transition: width 0.5s ease;
+  -webkit-background-clip: text;
+  background-clip: var(--bg-color) ;
+  background: var(--gradient-color);
 }
